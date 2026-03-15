@@ -1,15 +1,14 @@
 /* eslint-disable */
 
 export const displayMap = (locations) => {
+  if (!locations?.length) return;
+
   // Set in .env as MAPBOX_PUBLIC_TOKEN (run "npm run build" after adding it)
   mapboxgl.accessToken = process.env.MAPBOX_PUBLIC_TOKEN || '';
   const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/vtitov90/clvawxa4g00s601ph86vp77n2', // style URL
+    container: 'map',
+    style: 'mapbox://styles/vtitov90/clvawxa4g00s601ph86vp77n2',
     scrollZoom: false,
-    // center: [-118.113491, 34.111745], // starting position [lng, lat]
-    // zoom: 9, // starting zoom
-    // interactive: false, // allow to rotate the map
   });
 
   const bounds = new mapboxgl.LngLatBounds();
